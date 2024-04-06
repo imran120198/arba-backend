@@ -5,7 +5,7 @@ const { categoryModel } = require("../Model/Category.model");
 const CategoryRouter = Router();
 
 // Create Category
-CategoryRouter.post("/add", authentication, async (req, res) => {
+CategoryRouter.post("/add", async (req, res) => {
   try {
     const { name, slug, image } = req.body;
     const newCategory = new categoryModel({ name, slug, image });
@@ -20,7 +20,7 @@ CategoryRouter.post("/add", authentication, async (req, res) => {
 });
 
 // Update Category
-CategoryRouter.put("/update/:id", authentication, async (req, res) => {
+CategoryRouter.put("/update/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const { name, slug, image } = req.body;
